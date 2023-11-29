@@ -10,7 +10,7 @@ message = "Last digit of %d is %d and is" % (number, lastdigit)
 
 if lastdigit == 0:
     print(message, "0")
-elif lastdigit < 6:
+elif lastdigit > 5:
     print(message, "greater than 5")
 else:
     print(message, "less than 6 and not 0")
