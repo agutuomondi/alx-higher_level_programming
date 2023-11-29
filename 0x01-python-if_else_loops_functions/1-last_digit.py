@@ -9,7 +9,7 @@ else:
 message = "Last digit of %d is %d and is" % (number, lastdigit)
 
 if lastdigit == 0:
-    print(f"{thestring} and is 0")
+    print(message, "and is 0"
 elif lastdigit > 5:
     print(message, "greater than 5")
 else:
