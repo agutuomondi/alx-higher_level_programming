@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 def islower(c):
-    return c.isalpha() and c.islower()
-result = islower('a')
-print(result)
+    if ord(c) > 96:
+        return True
+    else:
+        return Fals
 
-result = islower('A')
-print(result)
