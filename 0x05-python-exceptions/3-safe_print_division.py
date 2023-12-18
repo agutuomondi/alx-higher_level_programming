@@ -3,13 +3,8 @@
 def safe_print_division(a, b):
     try:
         div = a / b
-    except ZeroDivisionError:
+    except (TypeError, ZeroDivisionError):
         div = None
-        print("Error: Division by zero")
-    except TypeError:
-        div = None
-        print("Error: Invalid types for division")
+    else:
+        print("Inside result: {}".format(div))
     return div
-
-result = safe_print_division(4, 2)
-print("Inside result:", result)
