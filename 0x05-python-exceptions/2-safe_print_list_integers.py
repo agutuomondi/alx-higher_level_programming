@@ -1,12 +1,6 @@
 #!/usr/bin/python3
 
 def safe_print_list_integers(my_list=[], x=0):
-    count = 0
-    for item in my_list[:x]:
-        try:
-            print("{:d}".format(item), end="")
-            count += 1
-        except (ValueError, TypeError):
-            continue
-    print("")
-    return count
+    valid_integers = [i for i in my_list[:x] if isinstance(i, int)]
+    print("".join(map(str, valid_integers)))
+    return len(valid_integers)
