@@ -1,14 +1,15 @@
 #!/usr/bin/python3
 
-
-def safe_print_list_integers(my_list=[], x=0):
+def safe_print_list_integers(my_list=None, x=0):
+    if my_list is None:
+        my_list = []
+    result = ""
     ret = 0
-    for b in range(0, x):
+    for i in range(x):
         try:
-            print("{:d}".format(my_list[b]), end="")
+            result += "{:d}".format(my_list[i])
             ret += 1
         except (ValueError, TypeError):
             continue
-    print("")
-    return (ret)
-
+    print(result)
+    return ret
