@@ -6,5 +6,9 @@ class Square:
     """Defines a square."""
 
     def __init__(self, size):
-        """Constructor."""
-        self._size = size
+        """Constructor.
+
+        Args:
+            size (int): Length of the side of the square.
+        """
+        self.__size = size
