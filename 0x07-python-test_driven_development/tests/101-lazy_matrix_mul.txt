@@ -1,0 +1,115 @@
+# 101-lazy_matrix_mul.py Documentation
+
+## Overview
+
+This module defines a matrix multiplication function `lazy_matrix_mul(m_a, m_b)`.
+
+## Function Signature
+
+```python
+def lazy_matrix_mul(m_a, m_b):
+    """Return a new matrix representing the multiplication of m_a by m_b.
+
+    Args:
+        m_a (list of lists): The first matrix.
+        m_b (list of lists): The second matrix.
+
+    Returns:
+        list of lists: The result of the matrix multiplication.
+    ```
+   
+## Usage
+
+### Basic Usage
+
+```python
+from 101-lazy_matrix_mul import lazy_matrix_mul
+
+m_a = [
+    [1, 2],
+    [3, 4]
+]
+m_b = m_a
+result = lazy_matrix_mul(m_a, m_b)
+print(result)
+# Output: [[7, 10], [15, 22]]
+Floating-Point Numbers
+m_a = [
+    [1.2, 5.5, 6.2],
+    [4.66, 12.3, -9.2]
+]
+m_b = [
+    [5.0, 3.3],
+    [-2.9, 4.4],
+    [7.2, 4.4]
+]
+result = lazy_matrix_mul(m_a, m_b)
+print(result)
+# Output: [[34.69, 55.44], [-78.61, 29.018]]
+Handling Missing Arguments
+
+try:
+    lazy_matrix_mul(m_a)
+except TypeError as e:
+    print(e)
+# Output: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+Errors and Edge Cases
+ValueErrors
+
+m_a = [
+    [1, 2],
+    [3, 4]
+]
+m_b = [
+    [1, 2],
+    [2, 3],
+    [4, 5]
+]
+try:
+    lazy_matrix_mul(m_a, m_b)
+except ValueError as e:
+    print(e)
+# Output: shapes (2, 2) and (3, 2) not aligned: 2 (dim 1) != 3 (dim 0)
+Invalid Matrices
+
+try:
+    lazy_matrix_mul("not a list", [[1, 2]])
+except ValueError as e:
+    print(e)
+# Output: Scalar operands are not allowed, use '*' instead
+Empty Matrices
+
+try:
+    lazy_matrix_mul([[]], [[5, 6], [7, 8]])
+except ValueError as e:
+    print(e)
+# Output: shapes (1, 0) and (2, 2) not aligned: 0 (dim 1) != 2 (dim 0)
+None Parameters
+
+try:
+    lazy_matrix_mul(None, None)
+except TypeError as e:
+    print(e)
+# Output: Object arrays are not currently supported
+Invalid Data Type in Matrices
+
+try:
+    lazy_matrix_mul([[1, "non-number"]], [[3, 4]])
+except ValueError as e:
+    print(e)
+# Output: shapes (1, 2) and (1, 2) not aligned: 2 (dim 1) != 1 (dim 0)
+Inconsistent Row Lengths
+
+m_a = [
+    [1, 2],
+    [3, 4, 5]
+]
+m_b = [
+    [1, 2],
+    [3, 4]
+]
+try:
+    lazy_matrix_mul(m_a, m_b)
+except ValueError as e:
+    print(e)
+# Output: setting an array element with a sequence.

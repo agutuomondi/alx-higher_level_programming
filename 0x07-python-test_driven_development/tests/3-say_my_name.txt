@@ -1,0 +1,68 @@
+# 3-say_my_name.py Documentation
+
+## Overview
+
+This module defines a function `say_my_name(first_name, last_name="")`.
+
+## Function Signature
+
+```python
+def say_my_name(first_name, last_name=""):
+    """Print a name.
+
+    Args:
+        first_name (str): The first name to print.
+        last_name (str, optional): The last name to print. Defaults to an empty string.
+    """
+Usage
+
+
+from 3-say_my_name import say_my_name
+
+# Example 1
+say_my_name("Brennan", "Baraban")
+# Output: My name is Brennan Baraban
+
+# Example 2
+say_my_name("Cornelius Maxwell", "Jones II")
+# Output: My name is Cornelius Maxwell Jones II
+
+# Example 3
+say_my_name("Brennan")
+# Output: My name is Brennan
+
+Invalid Names
+
+The parameters first_name and last_name must be strings. Otherwise, a TypeError is raised.
+
+try:
+    say_my_name(6, "James")
+except TypeError as e:
+    print(e)
+# Output: first_name must be a string
+
+try:
+    say_my_name("LeBron", ["Cavs", "Lakers", "Heat"])
+except TypeError as e:
+    print(e)
+# Output: last_name must be a string
+
+try:
+    say_my_name({"LeBron": 6, "James": 23}, 7.7)
+except TypeError as e:
+    print(e)
+# Output: first_name must be a string
+
+try:
+    say_my_name(None)
+except TypeError as e:
+    print(e)
+# Output: first_name must be a string
+
+At least one name must be provided.
+try:
+    say_my_name()
+except TypeError as e:
+    print(e)
+# Output: say_my_name() missing 1 required positional argument: 'first_name'
+

@@ -1,0 +1,84 @@
+# 2-matrix_divided.py Documentation
+
+## Overview
+
+This module defines a matrix division function `matrix_divided(matrix, div)`.
+
+## Function Signature
+`
+def matrix_divided(matrix, div):
+    """Divide all elements of a matrix.
+
+    Args:
+        matrix (list): A list of lists of ints or floats.
+        div (int/float): The divisor.
+
+    Raises:
+        TypeError: If the matrix contains non-numbers.
+        TypeError: If the matrix contains rows of different sizes.
+        TypeError: If div is not an int or float.
+        ZeroDivisionError: If div is 0.
+
+    Returns:
+        list: A new matrix representing the result of the division.
+    """
+
+usege
+from 2-matrix_divided import matrix_divided
+
+# Example 1
+matrix = [
+    [3, 6, 9],
+    [12, 15, 18]
+]
+result = matrix_divided(matrix, 3)
+print(result)
+# Output: [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+# Example 2
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+result = matrix_divided(matrix, 3)
+print(result)
+# Output: [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Invalid Matrices
+==============
+
+try:
+    matrix_divided("not a list", 3)
+except TypeError as e:
+    print(e)
+# Output: "matrix must be a matrix (list of lists) of integers/floats"
+
+try:
+    matrix_divided([], 3)
+except TypeError as e:
+    print(e)
+# Output: "matrix must be a matrix (list of lists) of integers/floats"
+
+try:
+    matrix_divided([[1, 2, 3, 4], [5, 6, 7]], 3)
+except TypeError as e:
+    print(e)
+# Output: "Each row of the matrix must have the same size"
+
+Invalid Divisors
+================
+The parameter div must be either an int or float. Otherwise, a TypeError is raised.
+
+try:
+    matrix_divided([[1, 2, 3], [4, 5, 6]], "not a number")
+except TypeError as e:
+    print(e)
+# Output: "div must be a number"
+
+div must be non-zero. Otherwise, a ZeroDivisionError is raised.
+
+try:
+    matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+except ZeroDivisionError as e:
+    print(e)
+# Output: "division by zero"

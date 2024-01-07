@@ -1,0 +1,106 @@
+# 4-print_square.py Documentation
+
+## Overview
+
+This module defines a square-printing function `print_square(size)`.
+
+## Function Signature
+
+```python
+def print_square(size):
+    """Print a square with the # character.
+
+    Args:
+        size (int): The height/width of the square.
+
+    Raises:
+        TypeError: If size is not an integer.
+        ValueError: If size is < 0.
+    """
+
+Usage
+
+
+from 4-print_square import print_square
+
+# Example 1
+print_square(1)
+# Output: #
+
+
+# Example 2
+print_square(4)
+# Output:
+# ####
+# ####
+# ####
+# ####
+
+
+# Example 3
+print_square(10)
+# Output:
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+
+
+# Example 4 (Edge Case)
+print_square(0)
+# Output: 
+
+Invalid Sizes
+The parameter size must be an integer. Otherwise, a TypeError is raised.
+
+
+try:
+    print_square("not an int")
+except TypeError as e:
+    print(e)
+# Output: size must be an integer
+
+
+try:
+    print_square(5.5)
+except TypeError as e:
+    print(e)
+# Output: size must be an integer
+
+
+try:
+    print_square(None)
+except TypeError as e:
+    print(e)
+# Output: size must be an integer
+
+If size is less than zero, a ValueError is raised.
+
+
+try:
+    print_square(-7)
+except ValueError as e:
+    print(e)
+# Output: size must be >= 0
+Type-checking occurs before value-checking.
+
+
+try:
+    print_square(-7.5)
+except TypeError as e:
+    print(e)
+# Output: size must be an integer
+At least one argument must be provided.
+
+
+try:
+    print_square()
+except TypeError as e:
+    print(e)
+# Output: print_square() missing 1 required positional argument: 'size'

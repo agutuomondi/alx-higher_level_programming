@@ -1,0 +1,117 @@
+# 100-matrix_mul.py Documentation
+
+## Overview
+
+This module defines a matrix multiplication function `matrix_mul(m_a, m_b)`.
+
+## Function Signature
+
+```python
+def matrix_mul(m_a, m_b):
+    """Return a new matrix representing the multiplication of m_a by m_b.
+
+    Args:
+        m_a (list of lists): The first matrix.
+        m_b (list of lists): The second matrix.
+
+    Returns:
+        list of lists: The result of the matrix multiplication.
+    """
+Usage
+Example 1
+
+from 100-matrix_mul import matrix_mul
+
+m_a = [
+    [1, 2],
+    [3, 4]
+]
+m_b = [
+    [1, 2],
+    [2, 3]
+]
+print(matrix_mul(m_a, m_b))
+# Output: [[5, 8], [11, 18]]
+Example 2
+
+m_a = [
+    [1.2, 5.5, 6.2],
+    [4.66, 12.3, -9.2]
+]
+m_b = [
+    [5.0, 3.3],
+    [-2.9, 4.4],
+    [7.2, 4.4]
+]
+print(matrix_mul(m_a, m_b))
+# Output: [[34.69, 55.44], [-78.61, 29.018]]
+Example 3
+
+m_a = [
+    [1, 2.2, 3.3, 4],
+    [5, 6, 7, 8.8]
+]
+m_b = [
+    [1.1, 2, 3.3],
+    [4.0, 5.5, 6],
+    [7, 8, 9],
+    [10.01, 11, 12.3]
+]
+print(matrix_mul(m_a, m_b))
+# Output: [[73.04, 84.5, 95.4], [166.59, 195.8, 223.74]]
+Errors and Edge Cases
+Invalid Number of Arguments
+
+try:
+    matrix_mul()
+except TypeError as e:
+    print(e)
+# Output: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+ValueErrors
+
+m_a = [
+    [1, 2],
+    [3, 4]
+]
+m_b = [
+    [1, 2],
+    [2, 3],
+    [4, 5]
+]
+try:
+    print(matrix_mul(m_a, m_b))
+except ValueError as e:
+    print(e)
+# Output: m_a and m_b can't be multiplied
+
+try:
+    print(matrix_mul([], [[1, 2]]))
+except ValueError as e:
+    print(e)
+# Output: m_a can't be empty
+Invalid Matrix
+try:
+    print(matrix_mul("not a list", [[1, 2]]))
+except TypeError as e:
+    print(e)
+# Output: m_a must be a list
+
+try:
+    print(matrix_mul([[1, 2]], "also not a list"))
+except TypeError as e:
+    print(e)
+# Output: m_b must be a list
+
+try:
+    print(matrix_mul("not a list", "also not a list"))
+except TypeError as e:
+    print(e)
+# Output: m_a must be a list
+
+try:
+    print(matrix_mul(None, None))
+except TypeError as e:
+    print(e)
+# Output: m_a must be a list
+
+# More examples for invalid matrices

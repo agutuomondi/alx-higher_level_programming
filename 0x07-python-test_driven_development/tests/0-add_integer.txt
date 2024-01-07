@@ -1,0 +1,36 @@
+# 0-add_integer.py Documentation
+This module defines an integer addition function `add_integer(a, b=98)`.
+
+## Usage
+```python
+from 0-add_integer import add_integer
+
+result = add_integer(2, 3)
+print(result)  # Output: 5
+
+result = add_integer(2, -3)
+print(result)  # Output: -1
+
+result = add_integer(2.0, 3.0)
+print(result)  # Output: 5
+
+Non-Numbers
+try:
+    add_integer("hello", 3)
+except TypeError as e:
+    print(e)  # Output: "a must be an integer"
+try:
+    add_integer("hello", "there")
+except TypeError as e:
+    print(e)  # Output: "a must be an integer"
+
+The function will fail if infinity is provided
+
+try:
+    add_integer(float('inf'))
+except OverflowError as e:
+    print(e)  # Output: "cannot convert float infinity to integer"
+try:
+    add_integer(float('nan'))
+except ValueError as e:
+    print(e)  # Output: "cannot convert float NaN to integer"
