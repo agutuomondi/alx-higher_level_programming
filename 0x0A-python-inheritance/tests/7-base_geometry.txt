@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+"""Defines test cases for 7-base_geometry.py."""
+
+import doctest
+
+# Import the BaseGeometry class from the module
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+# Run the doctests
+doctest.testmod()

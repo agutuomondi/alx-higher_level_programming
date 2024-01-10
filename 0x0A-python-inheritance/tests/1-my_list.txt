@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+"""Defines test cases for 1-my_list.py."""
+
+import doctest
+
+# Import the MyList class from the module
+MyList = __import__('1-my_list').MyList
+
+# Run the doctests
+doctest.testmod()
