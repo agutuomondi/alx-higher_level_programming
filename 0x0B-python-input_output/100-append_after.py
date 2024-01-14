@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-import shutil
-import os
+"""Defines a text file insertion function."""
+
 
 def append_after(filename="", search_string="", new_string=""):
-    temp_filename = filename + ".temp"
-
-    with open(filename, "r") as infile, open(temp_filename, "w") as outfile:
-        for line in infile:
-            outfile.write(line)
+    text = ""
+    with open(filename) as r:
+        for line in r:
+            text += line
             if search_string in line:
-                outfile.write(new_string)
-
-    shutil.move(temp_filename, filename)
+                text += new_string
+    with open(filename, "w") as w:
+        w.write(text)
